@@ -47,4 +47,14 @@ namespace eosio {
       eosio_assert(bool(peer.peer), "empty peer icp contract");
       return peer.last_outgoing_packet_seq + 1;
    }
+	
+   void remove_head_4bytes(bytes& todata)
+   {
+   if( todata.size() <= 4){
+      return;
+   }
+   char* beginaddr = todata.data();
+   memset(beginaddr,0,todata.size());
+   memmove(beginaddr,beginaddr+4,todata.size()-4);
+  }
 }
