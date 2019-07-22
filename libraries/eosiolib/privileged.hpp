@@ -3,7 +3,7 @@
 #include "serialize.hpp"
 #include "crypto.hpp"
 
-namespace eosio {
+namespace lemon {
 
   /**
    * @addtogroup privileged Privileged C++ API
@@ -138,14 +138,14 @@ namespace eosio {
     * Set the blockchain parameters
     * @param params - New blockchain parameters to set
     */
-   void set_blockchain_parameters(const eosio::blockchain_parameters& params);
+   void set_blockchain_parameters(const lemon::blockchain_parameters& params);
 
    /**
     * @brief Retrieve the blolckchain parameters
     * Retrieve the blolckchain parameters
     * @param params - It will be replaced with the retrieved blockchain params
     */
-   void get_blockchain_parameters(eosio::blockchain_parameters& params);
+   void get_blockchain_parameters(lemon::blockchain_parameters& params);
 
    ///@}
 

@@ -13,7 +13,7 @@
 #include <limits>
 #include <string_view>
 
-namespace eosio {
+namespace lemon {
 
   /**
    *  @addtogroup symbol Symbol CPP API
@@ -59,11 +59,11 @@ namespace eosio {
       :value(0)
       {
          if( str.size() > 7 ) {
-            eosio::check( false, "string is too long to be a valid symbol_code" );
+            lemon::check( false, "string is too long to be a valid symbol_code" );
          }
          for( auto itr = str.rbegin(); itr != str.rend(); ++itr ) {
             if( *itr < 'A' || *itr > 'Z') {
-               eosio::check( false, "only uppercase letters allowed in symbol_code string" );
+               lemon::check( false, "only uppercase letters allowed in symbol_code string" );
             }
             value <<= 8;
             value |= *itr;

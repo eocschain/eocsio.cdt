@@ -35,7 +35,7 @@
    */
 
 
-namespace eosio {
+namespace lemon {
 
    /**
     *  Prints string
@@ -136,7 +136,7 @@ namespace eosio {
     *
     * @param sym_code symbol code to be printed
     */
-   inline void print( eosio::symbol_code sym_code ) {
+   inline void print( lemon::symbol_code sym_code ) {
       char buffer[7];
       auto end = sym_code.write_as_string( buffer, buffer + sizeof(buffer) );
       if( buffer < end )

@@ -11,7 +11,7 @@
 
 #include <array>
 
-namespace eosio {
+namespace lemon {
 
    /**
    *  @defgroup publickeytype Public Key Type
@@ -103,7 +103,7 @@ namespace eosio {
     *  @param length - Data length
     *  @param hash - digest to compare to
     */
-   void assert_sha256( const char* data, uint32_t length, const eosio::checksum256& hash );
+   void assert_sha256( const char* data, uint32_t length, const lemon::checksum256& hash );
 
    /**
     *  Tests if the SHA1 hash generated from data matches the provided digest.
@@ -114,7 +114,7 @@ namespace eosio {
     *  @param length - Data length
     *  @param hash - digest to compare to
     */
-   void assert_sha1( const char* data, uint32_t length, const eosio::checksum160& hash );
+   void assert_sha1( const char* data, uint32_t length, const lemon::checksum160& hash );
 
    /**
     *  Tests if the SHA512 hash generated from data matches the provided digest.
@@ -125,7 +125,7 @@ namespace eosio {
     *  @param length - Data length
     *  @param hash - digest to compare to
     */
-   void assert_sha512( const char* data, uint32_t length, const eosio::checksum512& hash );
+   void assert_sha512( const char* data, uint32_t length, const lemon::checksum512& hash );
 
    /**
     *  Tests if the RIPEMD160 hash generated from data matches the provided digest.
@@ -135,7 +135,7 @@ namespace eosio {
     *  @param length - Data length
     *  @param hash - digest to compare to
     */
-   void assert_ripemd160( const char* data, uint32_t length, const eosio::checksum160& hash );
+   void assert_ripemd160( const char* data, uint32_t length, const lemon::checksum160& hash );
 
    /**
     *  Hashes `data` using SHA256.
@@ -143,9 +143,9 @@ namespace eosio {
     *
     *  @param data - Data you want to hash
     *  @param length - Data length
-    *  @return eosio::checksum256 - Computed digest
+    *  @return lemon::checksum256 - Computed digest
     */
-   eosio::checksum256 sha256( const char* data, uint32_t length );
+   lemon::checksum256 sha256( const char* data, uint32_t length );
 
    /**
     *  Hashes `data` using SHA1.
@@ -153,9 +153,9 @@ namespace eosio {
     *
     *  @param data - Data you want to hash
     *  @param length - Data length
-    *  @return eosio::checksum160 - Computed digest
+    *  @return lemon::checksum160 - Computed digest
     */
-   eosio::checksum160 sha1( const char* data, uint32_t length );
+   lemon::checksum160 sha1( const char* data, uint32_t length );
 
    /**
     *  Hashes `data` using SHA512.
@@ -163,9 +163,9 @@ namespace eosio {
     *
     *  @param data - Data you want to hash
     *  @param length - Data length
-    *  @return eosio::checksum512 - Computed digest
+    *  @return lemon::checksum512 - Computed digest
     */
-   eosio::checksum512 sha512( const char* data, uint32_t length );
+   lemon::checksum512 sha512( const char* data, uint32_t length );
 
    /**
     *  Hashes `data` using RIPEMD160.
@@ -173,9 +173,9 @@ namespace eosio {
     *
     *  @param data - Data you want to hash
     *  @param length - Data length
-    *  @return eosio::checksum160 - Computed digest
+    *  @return lemon::checksum160 - Computed digest
     */
-   eosio::checksum160 ripemd160( const char* data, uint32_t length );
+   lemon::checksum160 ripemd160( const char* data, uint32_t length );
 
    /**
     *  Calculates the public key used for a given signature on a given digest.
@@ -183,9 +183,9 @@ namespace eosio {
     *
     *  @param digest - Digest of the message that was signed
     *  @param sig - Signature
-    *  @return eosio::public_key - Recovered public key
+    *  @return lemon::public_key - Recovered public key
     */
-   eosio::public_key recover_key( const eosio::checksum256& digest, const eosio::signature& sig );
+   lemon::public_key recover_key( const lemon::checksum256& digest, const lemon::signature& sig );
 
    /**
     *  Tests a given public key with the recovered public key from digest and signature.
@@ -195,7 +195,7 @@ namespace eosio {
     *  @param sig - Signature
     *  @param pubkey - Public key
     */
-   void assert_recover_key( const eosio::checksum256& digest, const eosio::signature& sig, const eosio::public_key& pubkey );
+   void assert_recover_key( const lemon::checksum256& digest, const lemon::signature& sig, const lemon::public_key& pubkey );
 
    /// }@cryptoapi
 }

@@ -10,7 +10,7 @@
 #include <string>
 #include <string_view>
 
-namespace eosio {
+namespace lemon {
 
    /**
     * @defgroup name
@@ -68,7 +68,7 @@ namespace eosio {
       :value(0)
       {
          if( str.size() > 13 ) {
-            eosio::check( false, "string is too long to be a valid name" );
+            lemon::check( false, "string is too long to be a valid name" );
          }
          if( str.empty() ) {
             return;
@@ -83,7 +83,7 @@ namespace eosio {
          if( str.size() == 13 ) {
             uint64_t v = char_to_value( str[12] );
             if( v > 0x0Full ) {
-               eosio::check(false, "thirteenth character in name cannot be a letter that comes after j");
+               lemon::check(false, "thirteenth character in name cannot be a letter that comes after j");
             }
             value |= v;
          }
@@ -103,7 +103,7 @@ namespace eosio {
          else if( c >= 'a' && c <= 'z' )
             return (c - 'a') + 6;
          else
-            eosio::check( false, "character is not in allowed character set for names" );
+            lemon::check( false, "character is not in allowed character set for names" );
 
          return 0; // control flow will never reach here; just added to suppress warning
       }
@@ -263,8 +263,8 @@ namespace eosio {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu-string-literal-operator-template"
 template <typename T, T... Str>
-inline constexpr eosio::name operator""_n() {
-   constexpr auto x = eosio::name{std::string_view{eosio::detail::to_const_char_arr<Str...>::value, sizeof...(Str)}};
+inline constexpr lemon::name operator""_n() {
+   constexpr auto x = lemon::name{std::string_view{lemon::detail::to_const_char_arr<Str...>::value, sizeof...(Str)}};
    return x;
 }
 #pragma clang diagnostic pop

@@ -1,7 +1,7 @@
 #pragma once
 #include "print.hpp"
 
- namespace eosio {
+ namespace lemon {
     /**
     *  Container to hold a binary payload for an extension
     *

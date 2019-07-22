@@ -16,9 +16,9 @@ static_assert( sizeof(long) == sizeof(int), "unexpected size difference" );
 /**
  * Helper macros to reduce the verbosity for common contracts
  */
-#define CONTRACT class [[eosio::contract]]
-#define ACTION   [[eosio::action]] void
-#define TABLE struct [[eosio::table]]
+#define CONTRACT class [[lemon::contract]]
+#define ACTION   [[lemon::action]] void
+#define TABLE struct [[lemon::table]]
 
 /**
  * @defgroup c_api C API

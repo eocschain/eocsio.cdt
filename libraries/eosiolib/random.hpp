@@ -3,7 +3,7 @@
 #include <random>
 #include <memory>
 
-namespace eosio {
+namespace lemon {
 
    using seed_seq_ptr = std::unique_ptr<std::seed_seq>;
 

@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <type_traits>
 
-namespace eosio {
+namespace lemon {
 
    template<size_t Size>
    class fixed_key;
@@ -69,7 +69,7 @@ namespace eosio {
                    continue;
                }
 
-               eosio::check( sub_words_left == 1, "unexpected error in fixed_key constructor" );
+               lemon::check( sub_words_left == 1, "unexpected error in fixed_key constructor" );
                temp_word |= static_cast<word_t>(*w_itr);
                sub_words_left = num_sub_words;
 

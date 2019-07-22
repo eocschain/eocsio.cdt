@@ -6,7 +6,7 @@
 #include "system.h"
 #include <string>
 
-namespace eosio {
+namespace lemon {
 
    /**
     *  @addtogroup system System C++ API

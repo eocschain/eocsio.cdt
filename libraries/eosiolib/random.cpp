@@ -7,7 +7,7 @@
 
 #include "random.h"
 
-namespace eosio {
+namespace lemon {
 
    seed_seq_ptr seed_seq() {
       char buf[48]; // 12 * sizeof(uint32_t)

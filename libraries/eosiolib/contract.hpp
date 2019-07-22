@@ -10,7 +10,7 @@
  * @brief Defines contract type which is %base class for every EOSIO contract
  * @{
  */
-namespace eosio {
+namespace lemon {
 
 /**
  * @brief %Base class for EOSIO contract.

@@ -119,7 +119,7 @@ extern "C" {
             printf("0x%04x%04x%04x%04x\n", tmp[0], tmp[1], tmp[2], tmp[3]);
          });
       intrinsics::set_intrinsic<intrinsics::printn>([](uint64_t nm) {
-            std::string s = eosio::name(nm).to_string();
+            std::string s = lemon::name(nm).to_string();
             prints_l(s.c_str(), s.length());
          });
 

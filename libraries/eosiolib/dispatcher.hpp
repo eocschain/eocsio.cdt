@@ -7,7 +7,7 @@
 
 #include <boost/mp11/tuple.hpp>
 
-namespace eosio {
+namespace lemon {
 
    template<typename Contract, typename FirstAction>
    bool dispatch( uint64_t code, uint64_t act ) {
@@ -26,7 +26,7 @@ namespace eosio {
     * static Contract::on( ActionType )
     * ```
     *
-    * For this to work the Actions must be derived from eosio::contract
+    * For this to work the Actions must be derived from lemon::contract
     *
     */
    template<typename Contract, typename FirstAction, typename SecondAction, typename... Actions>
@@ -35,7 +35,7 @@ namespace eosio {
          Contract().on( unpack_action_data<FirstAction>() );
          return true;
       }
-      return eosio::dispatch<Contract,SecondAction,Actions...>( code, act );
+      return lemon::dispatch<Contract,SecondAction,Actions...>( code, act );
    }
 
    /**
@@ -48,7 +48,7 @@ namespace eosio {
    /**
     * Unpack the received action and execute the correponding action handler
     *
-    * @tparam T - The contract class that has the correponding action handler, this contract should be derived from eosio::contract
+    * @tparam T - The contract class that has the correponding action handler, this contract should be derived from lemon::contract
     * @tparam Q - The namespace of the action handler function
     * @tparam Args - The arguments that the action handler accepts, i.e. members of the action
     * @param obj - The contract object that has the correponding action handler
@@ -90,8 +90,8 @@ namespace eosio {
 
  // Helper macro for EOSIO_DISPATCH_INTERNAL
  #define EOSIO_DISPATCH_INTERNAL( r, OP, elem ) \
-    case eosio::name( BOOST_PP_STRINGIZE(elem) ).value: \
-       eosio::execute_action( eosio::name(receiver), eosio::name(code), &OP::elem ); \
+    case lemon::name( BOOST_PP_STRINGIZE(elem) ).value: \
+       lemon::execute_action( lemon::name(receiver), lemon::name(code), &OP::elem ); \
        break;
 
  // Helper macro for EOSIO_DISPATCH
@@ -104,13 +104,13 @@ namespace eosio {
  * @addtogroup dispatcher
  * Convenient macro to create contract apply handler
  *
- * @note To be able to use this macro, the contract needs to be derived from eosio::contract
+ * @note To be able to use this macro, the contract needs to be derived from lemon::contract
  * @param TYPE - The class name of the contract
  * @param MEMBERS - The sequence of available actions supported by this contract
  *
  * Example:
  * @code
- * EOSIO_DISPATCH( eosio::bios, (setpriv)(setalimits)(setglimits)(setprods)(reqauth) )
+ * EOSIO_DISPATCH( lemon::bios, (setpriv)(setalimits)(setglimits)(setprods)(reqauth) )
  * @endcode
  */
 #define EOSIO_DISPATCH( TYPE, MEMBERS ) \

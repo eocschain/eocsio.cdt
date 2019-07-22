@@ -30,7 +30,7 @@
 
 #include <boost/pfr.hpp>
 
-namespace eosio {
+namespace lemon {
 
 /**
  *  A data stream for reading and writing data in the form of bytes
@@ -65,7 +65,7 @@ class datastream {
       *  @return true
       */
       inline bool read( char* d, size_t s ) {
-        eosio::check( size_t(_end - _pos) >= (size_t)s, "read" );
+        lemon::check( size_t(_end - _pos) >= (size_t)s, "read" );
         memcpy( d, _pos, s );
         _pos += s;
         return true;
@@ -79,7 +79,7 @@ class datastream {
       *  @return true
       */
       inline bool write( const char* d, size_t s ) {
-        eosio::check( _end - _pos >= (int32_t)s, "write" );
+        lemon::check( _end - _pos >= (int32_t)s, "write" );
         memcpy( (void*)_pos, d, s );
         _pos += s;
         return true;
@@ -93,7 +93,7 @@ class datastream {
       *  @return true
       */
       inline bool put(char c) {
-        eosio::check( _pos < _end, "put" );
+        lemon::check( _pos < _end, "put" );
         *_pos = c;
         ++_pos;
         return true;
@@ -117,7 +117,7 @@ class datastream {
       */
       inline bool get( char& c )
       {
-        eosio::check( _pos < _end, "get" );
+        lemon::check( _pos < _end, "get" );
         c = *_pos;
         ++_pos;
         return true;
@@ -342,7 +342,7 @@ inline datastream<Stream>& operator>>(datastream<Stream>& ds, std::deque<T>& d) 
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream, typename T>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::binary_extension<T>& be) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const lemon::binary_extension<T>& be) {
   ds << be.value_or();
   return ds;
 }
@@ -357,7 +357,7 @@ inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::binar
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream, typename T>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::binary_extension<T>& be) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, lemon::binary_extension<T>& be) {
   if( ds.remaining() ) {
      T val;
      ds >> val;
@@ -394,7 +394,7 @@ void deserialize(datastream<Stream>& ds, std::variant<Ts...>& var, int i) {
          deserialize<I+1>(ds,var,i);
       }
    } else {
-      eosio::check(false, "invalid variant index");
+      lemon::check(false, "invalid variant index");
    }
 }
 
@@ -501,7 +501,7 @@ inline datastream<Stream>& operator>>(datastream<Stream>& ds, std::optional<T>& 
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::symbol_code sym_code) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const lemon::symbol_code sym_code) {
   uint64_t raw = sym_code.raw();
   ds.write( (const char*)&raw, sizeof(raw));
   return ds;
@@ -517,7 +517,7 @@ inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::symbo
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::symbol_code& sym_code) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, lemon::symbol_code& sym_code) {
   uint64_t raw = 0;
   ds.read((char*)&raw, sizeof(raw));
   sym_code = symbol_code(raw);
@@ -534,7 +534,7 @@ inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::symbol_code
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::symbol sym) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const lemon::symbol sym) {
   uint64_t raw = sym.raw();
   ds.write( (const char*)&raw, sizeof(raw));
   return ds;
@@ -550,7 +550,7 @@ inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::symbo
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::symbol& sym) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, lemon::symbol& sym) {
   uint64_t raw = 0;
   ds.read((char*)&raw, sizeof(raw));
   sym = symbol(raw);
@@ -567,7 +567,7 @@ inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::symbol& sym
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream, typename T>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::eosio::ignore_wrapper<T>& val) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::lemon::ignore_wrapper<T>& val) {
   ds << val.value;
   return ds;
 }
@@ -582,7 +582,7 @@ inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::eosio::ign
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream, typename T>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::eosio::ignore<T>& val) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::lemon::ignore<T>& val) {
   return ds;
 }
 
@@ -596,7 +596,7 @@ inline datastream<Stream>& operator<<(datastream<Stream>& ds, const ::eosio::ign
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream, typename T>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, ::eosio::ignore<T>) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, ::lemon::ignore<T>) {
   return ds;
 }
 
@@ -631,64 +631,64 @@ inline datastream<Stream>& operator>>(datastream<Stream>& ds, capi_public_key& p
 }
 
 /**
- *  Serialize an eosio::public_key into a stream
+ *  Serialize an lemon::public_key into a stream
  *
- *  @brief Serialize an eosio::public_key
+ *  @brief Serialize an lemon::public_key
  *  @param ds - The stream to write
  *  @param pubkey - The value to serialize
  *  @tparam Stream - Type of datastream buffer
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::public_key& pubkey) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const lemon::public_key& pubkey) {
    ds << pubkey.type;
    ds.write( pubkey.data.data(), pubkey.data.size() );
    return ds;
 }
 
 /**
- *  Deserialize an eosio::public_key from a stream
+ *  Deserialize an lemon::public_key from a stream
  *
- *  @brief Deserialize an eosio::public_key
+ *  @brief Deserialize an lemon::public_key
  *  @param ds - The stream to read
  *  @param pubkey - The destination for deserialized value
  *  @tparam Stream - Type of datastream buffer
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::public_key& pubkey) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, lemon::public_key& pubkey) {
    ds >> pubkey.type;
    ds.read( pubkey.data.data(), pubkey.data.size() );
    return ds;
 }
 
 /**
- *  Serialize an eosio::signature into a stream
+ *  Serialize an lemon::signature into a stream
  *
- *  @brief Serialize an eosio::signature
+ *  @brief Serialize an lemon::signature
  *  @param ds - The stream to write
  *  @param sig - The value to serialize
  *  @tparam Stream - Type of datastream buffer
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator<<(datastream<Stream>& ds, const eosio::signature& sig) {
+inline datastream<Stream>& operator<<(datastream<Stream>& ds, const lemon::signature& sig) {
    ds << sig.type;
    ds.write( sig.data.data(), sig.data.size() );
    return ds;
 }
 
 /**
- *  Deserialize an eosio::signature from a stream
+ *  Deserialize an lemon::signature from a stream
  *
- *  @brief Deserialize an eosio::signature
+ *  @brief Deserialize an lemon::signature
  *  @param ds - The stream to read
  *  @param sig - The destination for deserialized value
  *  @tparam Stream - Type of datastream buffer
  *  @return datastream<Stream>& - Reference to the datastream
  */
 template<typename Stream>
-inline datastream<Stream>& operator>>(datastream<Stream>& ds, eosio::signature& sig) {
+inline datastream<Stream>& operator>>(datastream<Stream>& ds, lemon::signature& sig) {
    ds >> sig.type;
    ds.read( sig.data.data(), sig.data.size() );
    return ds;
@@ -994,7 +994,7 @@ template<typename DataStream, typename T, std::size_t N,
 DataStream& operator >> ( DataStream& ds, T (&v)[N] ) {
    unsigned_int s;
    ds >> s;
-   eosio::check( N == s.value, "T[] size and unpacked size don't match");
+   lemon::check( N == s.value, "T[] size and unpacked size don't match");
    for( uint32_t i = 0; i < N; ++i )
       ds >> v[i];
    return ds;
@@ -1016,7 +1016,7 @@ template<typename DataStream, typename T, std::size_t N,
 DataStream& operator >> ( DataStream& ds, T (&v)[N] ) {
    unsigned_int s;
    ds >> s;
-   eosio::check( N == s.value, "T[] size and unpacked size don't match");
+   lemon::check( N == s.value, "T[] size and unpacked size don't match");
    ds.read((char*)&v[0], sizeof(v));
    return ds;
 }
