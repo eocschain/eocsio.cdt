@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <setjmp.h>
 
-eosio::cdt::output_stream std_out;
-eosio::cdt::output_stream std_err;
+lemon::cdt::output_stream std_out;
+lemon::cdt::output_stream std_err;
 
 extern "C" {
 #ifdef __APPLE__
@@ -31,9 +31,9 @@ extern "C" {
 
    void _prints_l(const char* cstr, uint32_t len, uint8_t which) {
       for (int i=0; i < len; i++) {
-         if (which == eosio::cdt::output_stream_kind::std_out)
+         if (which == lemon::cdt::output_stream_kind::std_out)
             std_out.push(cstr[i]);
-         else if (which == eosio::cdt::output_stream_kind::std_err)
+         else if (which == lemon::cdt::output_stream_kind::std_err)
             std_err.push(cstr[i]);
          if (!___disable_output)
             ___putc(cstr[i]);
@@ -42,9 +42,9 @@ extern "C" {
 
    void _prints(const char* cstr, uint8_t which) {
       for (int i=0; cstr[i] != '\0'; i++) {
-         if (which == eosio::cdt::output_stream_kind::std_out)
+         if (which == lemon::cdt::output_stream_kind::std_out)
             std_out.push(cstr[i]);
-         else if (which == eosio::cdt::output_stream_kind::std_err)
+         else if (which == lemon::cdt::output_stream_kind::std_err)
             std_err.push(cstr[i]);
          if (!___disable_output)
             ___putc(cstr[i]);
@@ -67,10 +67,10 @@ extern "C" {
       ___has_failed = false;
       // preset the print functions
       intrinsics::set_intrinsic<intrinsics::prints_l>([](const char* cs, uint32_t l) {
-            _prints_l(cs, l, eosio::cdt::output_stream_kind::std_out);
+            _prints_l(cs, l, lemon::cdt::output_stream_kind::std_out);
          });
       intrinsics::set_intrinsic<intrinsics::prints>([](const char* cs) {
-            _prints(cs, eosio::cdt::output_stream_kind::std_out);
+            _prints(cs, lemon::cdt::output_stream_kind::std_out);
          });
       intrinsics::set_intrinsic<intrinsics::printi>([](int64_t v) {
             printf("%lli\n", v);

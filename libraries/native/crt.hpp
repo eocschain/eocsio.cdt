@@ -1,7 +1,7 @@
 #pragma once
 #include <setjmp.h>
 
-namespace eosio { namespace cdt {
+namespace lemon { namespace cdt {
    enum output_stream_kind {
       std_out,
       std_err,
@@ -17,8 +17,8 @@ namespace eosio { namespace cdt {
    };
 }} //ns eosio::cdt
 
-extern eosio::cdt::output_stream std_out;
-extern eosio::cdt::output_stream std_err;
+extern lemon::cdt::output_stream std_out;
+extern lemon::cdt::output_stream std_err;
 extern "C" jmp_buf* ___env_ptr;
 extern "C" char*    ___heap_ptr;
 

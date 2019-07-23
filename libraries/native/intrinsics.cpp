@@ -869,16 +869,16 @@ extern "C" {
    
    void eosio_assert(uint32_t test, const char* msg) {
       if (test == 0) {
-         _prints(msg, eosio::cdt::output_stream_kind::std_err);
-         _prints_l("\n", 1, eosio::cdt::output_stream_kind::none);
+         _prints(msg, lemon::cdt::output_stream_kind::std_err);
+         _prints_l("\n", 1, lemon::cdt::output_stream_kind::none);
          longjmp(*___env_ptr, 1);
       }
    }
 
    void eosio_assert_message(uint32_t test, const char* msg, uint32_t len) {
       if (test == 0) {
-         _prints_l(msg, len, eosio::cdt::output_stream_kind::std_err);
-         _prints_l("\n", 1, eosio::cdt::output_stream_kind::none);
+         _prints_l(msg, len, lemon::cdt::output_stream_kind::std_err);
+         _prints_l("\n", 1, lemon::cdt::output_stream_kind::none);
          longjmp(*___env_ptr, 1);
       }
    }
@@ -887,8 +887,8 @@ extern "C" {
       if (test == 0) {
          char buff[32];
          snprintf(buff, 32, "%llu", code);
-         _prints(buff, eosio::cdt::output_stream_kind::std_err);
-         _prints_l("\n", 1, eosio::cdt::output_stream_kind::none);
+         _prints(buff, lemon::cdt::output_stream_kind::std_err);
+         _prints_l("\n", 1, lemon::cdt::output_stream_kind::none);
          longjmp(*___env_ptr, 1);
       }
    }

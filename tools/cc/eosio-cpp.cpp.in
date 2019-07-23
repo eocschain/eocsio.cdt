@@ -21,7 +21,7 @@ int main(int argc, const char **argv) {
   // fix to show version info without having to have any other arguments
   for (int i=0; i < argc; i++) {
     if (argv[i] == std::string("-v")) {
-      eosio::cdt::environment::exec_subprogram("clang-7", {"-v"});
+      lemon::cdt::environment::exec_subprogram("clang-7", {"-v"});
       return 0;
     }
   }
@@ -31,7 +31,7 @@ int main(int argc, const char **argv) {
   });
   cl::ParseCommandLineOptions(argc, argv, std::string(COMPILER_NAME)+" (Eosio C++ -> WebAssembly compiler)");
   Options opts = CreateOptions();
-   if (!eosio::cdt::environment::exec_subprogram("clang-7", opts.comp_options))
+   if (!lemon::cdt::environment::exec_subprogram("clang-7", opts.comp_options))
      return -1;
 
   if ( !llvm::sys::fs::exists( opts.output_fn ) ) {
@@ -39,7 +39,7 @@ int main(int argc, const char **argv) {
   }
   // then link
   if (opts.link) {
-     if (!eosio::cdt::environment::exec_subprogram("eosio-ld", opts.ld_options))
+     if (!lemon::cdt::environment::exec_subprogram("eosio-ld", opts.ld_options))
         return -1;
 
      if ( !llvm::sys::fs::exists( opts.output_fn ) ) {
@@ -54,7 +54,7 @@ int main(int argc, const char **argv) {
       opts.abigen_options.insert(opts.abigen_options.begin(), opts.abigen_inputs);
       for ( auto res : opts.abigen_resources )
          opts.abigen_options.emplace(opts.abigen_options.begin(), res);
-      if (!eosio::cdt::environment::exec_subprogram("eosio-abigen", opts.abigen_options))
+      if (!lemon::cdt::environment::exec_subprogram("eosio-abigen", opts.abigen_options))
          return -1;
   }
   

@@ -15,7 +15,7 @@ extern char **environ;
 #include <vector>
 #include <sstream>
 
-namespace eosio { namespace cdt {
+namespace lemon { namespace cdt {
 
 uint64_t char_to_symbol( char c ) {
    if( c >= 'a' && c <= 'z' )

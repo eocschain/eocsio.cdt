@@ -14,7 +14,7 @@
 #include <regex>
 #include <eosio/utils.hpp>
 
-namespace eosio { namespace cdt {
+namespace lemon { namespace cdt {
 
 struct simple_ricardian_tokenizer {
    simple_ricardian_tokenizer( const std::string& src ) : source(src), index(0) {}
