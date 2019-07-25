@@ -20,6 +20,7 @@ static_assert( sizeof(long) == sizeof(int), "unexpected size difference" );
 #define ACTION   [[lemon::action]] void
 #define TABLE struct [[lemon::table]]
 
+#define lemo  eosio
 /**
  * @defgroup c_api C API
  * @brief C++ API for writing ESIO Smart Contracts
