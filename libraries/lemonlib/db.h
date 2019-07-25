@@ -4,7 +4,7 @@
  *  @brief Defines C API for interfacing with blockchain database
  */
 #pragma once
-#include <eosiolib/types.h>
+#include <lemonlib/types.h>
 
 /**
  *  @addtogroup database_c_api Database C API

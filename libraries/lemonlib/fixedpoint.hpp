@@ -1,6 +1,6 @@
 #pragma once
-#include <eosiolib/types.h>
-#include <eosiolib/print.hpp>
+#include <lemonlib/types.h>
+#include <lemonlib/print.hpp>
 #include "lemon.hpp"
 namespace eosio
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include <eosiolib/print.hpp>
-#include <eosiolib/action.hpp>
+#include <lemonlib/print.hpp>
+#include <lemonlib/action.hpp>
 
 #include <boost/fusion/adapted/std_tuple.hpp>
 #include <boost/fusion/include/std_tuple.hpp>

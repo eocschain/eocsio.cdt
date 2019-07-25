@@ -1,7 +1,7 @@
 #pragma once
 
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/singleton.hpp>
+#include <lemonlib/eosio.hpp>
+#include <lemonlib/singleton.hpp>
 
 namespace eosio {
 

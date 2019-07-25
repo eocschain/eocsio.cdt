@@ -1,5 +1,5 @@
 #pragma once
-#include <eosiolib/eosio.hpp>
+#include <lemonlib/lemonc.hpp>
 #include "crt.hpp"
 #include "intrinsics.hpp"
 #include <setjmp.h>

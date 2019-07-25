@@ -20,8 +20,8 @@ add_contract( test test test.cpp )
 In `test.cpp`:
 
 ```
-#include <eosiolib/eosio.hpp>
-using namespace eosio;
+#include <lemonlib/lemonc.hpp>
+using namespace lemon;
 
 CONTRACT test : public eosio::contract {
 public:

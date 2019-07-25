@@ -54,7 +54,7 @@ struct project {
                            "}\n\n"
                            "EOSIO_DISPATCH( @, (hi) )";
 
-   const std::string hpp = "#include <eosiolib/eosio.hpp>\n"
+   const std::string hpp = "#include <lemonlib/lemonc.hpp>\n"
                            "using namespace eosio;\n\n"
                            "CONTRACT @ : public contract {\n"
                            "   public:\n"
