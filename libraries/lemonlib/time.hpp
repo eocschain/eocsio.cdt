@@ -1,5 +1,5 @@
 #pragma once
-#include "eosio.hpp"
+#include "lemonc.hpp"
 
 #include <stdint.h>
 #include <string>
