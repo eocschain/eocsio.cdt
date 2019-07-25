@@ -12,7 +12,7 @@
 #include <boost/preprocessor/variadic/to_tuple.hpp>
 #include <boost/preprocessor/tuple/enum.hpp>
 #include <boost/preprocessor/facilities/overload.hpp>
-
+#include "lemon.hpp"
 namespace lemon {
 
    /**

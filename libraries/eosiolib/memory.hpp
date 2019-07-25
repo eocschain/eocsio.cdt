@@ -5,7 +5,7 @@
 #pragma once
 
 #include "types.h"
-
+#include "lemon.hpp"
 #ifdef EOSIO_NATIVE
 extern "C" void* alloca(size_t);
 #endif

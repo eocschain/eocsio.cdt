@@ -2,7 +2,7 @@
 #include "privileged.h"
 #include "serialize.hpp"
 #include "crypto.hpp"
-
+#include "lemon.hpp"
 namespace lemon {
 
   /**

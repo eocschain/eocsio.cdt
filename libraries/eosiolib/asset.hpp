@@ -6,7 +6,7 @@
 
 #include <tuple>
 #include <limits>
-
+#include "lemon.hpp"
 namespace lemon {
   /**
    *  Defines %CPP API for managing assets

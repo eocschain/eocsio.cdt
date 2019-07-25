@@ -9,7 +9,7 @@
 #include <array>
 #include <algorithm>
 #include <type_traits>
-
+#include "lemon.hpp"
 namespace lemon {
 
    template<size_t Size>

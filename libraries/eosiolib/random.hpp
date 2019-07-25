@@ -2,7 +2,7 @@
 
 #include <random>
 #include <memory>
-
+#include "lemon.hpp"
 namespace lemon {
 
    using seed_seq_ptr = std::unique_ptr<std::seed_seq>;

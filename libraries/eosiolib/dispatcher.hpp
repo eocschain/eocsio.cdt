@@ -6,6 +6,7 @@
 #include <boost/fusion/include/std_tuple.hpp>
 
 #include <boost/mp11/tuple.hpp>
+#include "lemon.hpp"
 
 namespace lemon {
 

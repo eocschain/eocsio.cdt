@@ -29,7 +29,7 @@
 #include <boost/fusion/include/for_each.hpp>
 
 #include <boost/pfr.hpp>
-
+#include "lemon.hpp"
 namespace lemon {
 
 /**

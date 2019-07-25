@@ -2,7 +2,7 @@
 
 #include "name.hpp"
 #include "datastream.hpp"
-
+#include "lemon.hpp"
 
 /**
  * @defgroup contract Contract

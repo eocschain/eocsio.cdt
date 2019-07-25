@@ -8,7 +8,7 @@
 #include "fixed_bytes.hpp"
 #include "varint.hpp"
 #include "serialize.hpp"
-
+#include "lemon.hpp"
 #include <array>
 
 namespace lemon {

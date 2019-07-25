@@ -1,7 +1,7 @@
 #pragma once
 #include <eosiolib/types.h>
 #include <eosiolib/print.hpp>
-
+#include "lemon.hpp"
 namespace eosio
 {
     /**

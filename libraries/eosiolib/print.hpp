@@ -10,7 +10,7 @@
 
 #include <utility>
 #include <string>
-
+#include "lemon.hpp"
 /**
    *  @defgroup console Console C++ API
    *  @ingroup cpp_api
