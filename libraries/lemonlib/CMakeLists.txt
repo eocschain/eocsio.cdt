@@ -2,12 +2,12 @@ file(GLOB HEADERS "*.hpp"
                   "*.h")
 
 add_library(lemon
-            eosiolib.cpp
+            lemonlib.cpp
             crypto.cpp
             ${HEADERS})
 
 add_native_library(native_lemon
-                   eosiolib.cpp
+                   lemonlib.cpp
                    crypto.cpp
                    ${HEADERS})
 
@@ -37,4 +37,4 @@ add_dependencies( native_lemon lemon )
 add_custom_command( TARGET lemon POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:lemon> ${BASE_BINARY_DIR}/lib )
 add_custom_command( TARGET native_lemon POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:native_lemon> ${BASE_BINARY_DIR}/lib )
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/../eosiolib DESTINATION ${BASE_BINARY_DIR}/include FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/../lemonlib DESTINATION ${BASE_BINARY_DIR}/include FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
