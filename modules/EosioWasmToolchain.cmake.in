@@ -11,9 +11,9 @@ endif()
 set(EOSIO_CDT_VERSION "@VERSION_FULL@")
 set(EOSIO_WASMSDK_VERSION "@VERSION_FULL@")
 
-set(CMAKE_C_COMPILER "@CDT_ROOT_DIR@/bin/eosio-cc")
-set(CMAKE_CXX_COMPILER "@CDT_ROOT_DIR@/bin/eosio-cpp")
-set(CMAKE_ASM_COMPILER "@CDT_ROOT_DIR@/bin/eosio-cc")
+set(CMAKE_C_COMPILER "@CDT_ROOT_DIR@/bin/lemon-cc")
+set(CMAKE_CXX_COMPILER "@CDT_ROOT_DIR@/bin/lemon-cpp")
+set(CMAKE_ASM_COMPILER "@CDT_ROOT_DIR@/bin/lemon-cc")
 
 set(CMAKE_C_FLAGS " -O3 ")
 set(CMAKE_CXX_FLAGS " -O3 ")
@@ -35,7 +35,7 @@ if (NOT EOSIO_WASM_OLD_BEHAVIOR STREQUAL "On")
     set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 endif()
 
-set(ABIGEN "@CDT_ROOT_DIR@/bin/eosio-abigen")
+set(ABIGEN "@CDT_ROOT_DIR@/bin/lemon-abigen")
 
 # hack for OSX
 set(CMAKE_OSX_SYSROOT="@SYSROOT_DIR@")
