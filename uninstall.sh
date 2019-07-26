@@ -1,6 +1,6 @@
 #! /bin/bash
 
-binaries=(eosio-ranlib
+binaries=(lemon-ranlib
           eosio-ar
           eosio-objdump
           eosio-readelf

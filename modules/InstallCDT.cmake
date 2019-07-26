@@ -41,7 +41,7 @@ macro( eosio_libraries_install)
    install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR})
 endmacro( eosio_libraries_install )
 
-eosio_clang_install_and_symlink(llvm-ranlib eosio-ranlib)
+eosio_clang_install_and_symlink(llvm-ranlib lemon-ranlib)
 eosio_clang_install_and_symlink(llvm-ar eosio-ar)
 eosio_clang_install_and_symlink(llvm-nm eosio-nm)
 eosio_clang_install_and_symlink(llvm-objcopy eosio-objcopy)
