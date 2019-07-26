@@ -49,12 +49,12 @@ create_symlink() {
 
 create_symlink "lemon-cc lemon-cc"
 create_symlink "lemon-cpp lemon-cpp"
-create_symlink "eosio-ld eosio-ld"
-create_symlink "eosio-pp eosio-pp"
-create_symlink "eosio-init eosio-init"
+create_symlink "lemon-ld lemon-ld"
+create_symlink "lemon-pp lemon-pp"
+create_symlink "lemon-init lemon-init"
 create_symlink "lemon-abigen lemon-abigen"
-create_symlink "eosio-wasm2wast eosio-wasm2wast"
-create_symlink "eosio-wast2wasm eosio-wast2wasm"
+create_symlink "lemon-wasm2wast lemon-wasm2wast"
+create_symlink "lemon-wast2wasm lemon-wast2wasm"
 
 tar -cvzf $NAME ./${PREFIX}/*
 rm -r ${PREFIX}

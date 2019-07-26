@@ -186,9 +186,9 @@ struct project {
 int main(int argc, const char **argv) {
 
    cl::SetVersionPrinter([](llvm::raw_ostream& os) {
-        os << "eosio-init version " << "@VERSION_FULL@" << "\n";
+        os << "lemon-init version " << "@VERSION_FULL@" << "\n";
   });
-   cl::OptionCategory cat("eosio-init", "generates an eosio smart contract project");
+   cl::OptionCategory cat("lemon-init", "generates an eosio smart contract project");
    
    cl::opt<bool> bare_opt(
       "bare",

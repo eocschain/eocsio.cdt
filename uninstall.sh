@@ -1,16 +1,16 @@
 #! /bin/bash
 
 binaries=(lemon-ranlib
-          eosio-ar
-          eosio-objdump
-          eosio-readelf
+          lemon-ar
+          lemon-objdump
+          lemon-readelf
           lemon-abigen
-          eosio-wasm2wast
-          eosio-wast2wasm
-          eosio-pp
+          lemon-wasm2wast
+          lemon-wast2wasm
+          lemon-pp
           lemon-cc
           lemon-cpp
-          eosio-ld)
+          lemon-ld)
 
 if [ -d "/usr/local/eosio.cdt" ]; then
    printf "\tDo you wish to remove this install? (requires sudo)\n"

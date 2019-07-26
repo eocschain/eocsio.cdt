@@ -294,22 +294,22 @@ if (NOT EMSCRIPTEN)
       DEPENDS ${name}
     )
   endfunction()
-  wabt_executable(eosio-pp src/tools/postpass.cc)
-  add_custom_command( TARGET eosio-pp POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
-  add_custom_command( TARGET eosio-pp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:eosio-pp> ${CMAKE_BINARY_DIR}/bin/ )
+  wabt_executable(lemon-pp src/tools/postpass.cc)
+  add_custom_command( TARGET lemon-pp POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
+  add_custom_command( TARGET lemon-pp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:lemon-pp> ${CMAKE_BINARY_DIR}/bin/ )
 
   # wat2wasm
-  wabt_executable(eosio-wast2wasm src/tools/wat2wasm.cc)
-  add_custom_command( TARGET eosio-wast2wasm POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
-  add_custom_command( TARGET eosio-wast2wasm POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:eosio-wast2wasm> ${CMAKE_BINARY_DIR}/bin/ )
+  wabt_executable(lemon-wast2wasm src/tools/wat2wasm.cc)
+  add_custom_command( TARGET lemon-wast2wasm POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
+  add_custom_command( TARGET lemon-wast2wasm POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:lemon-wast2wasm> ${CMAKE_BINARY_DIR}/bin/ )
 
   # wast2json
   wabt_executable(wast2json src/tools/wast2json.cc)
 
   # wasm2wat
-  wabt_executable(eosio-wasm2wast src/tools/wasm2wat.cc)
-  add_custom_command( TARGET eosio-wasm2wast POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
-  add_custom_command( TARGET eosio-wasm2wast POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:eosio-wasm2wast> ${CMAKE_BINARY_DIR}/bin/ )
+  wabt_executable(lemon-wasm2wast src/tools/wasm2wat.cc)
+  add_custom_command( TARGET lemon-wasm2wast POST_BUILD COMMAND mkdir -p ${CMAKE_BINARY_DIR}/bin )
+  add_custom_command( TARGET lemon-wasm2wast POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:lemon-wasm2wast> ${CMAKE_BINARY_DIR}/bin/ )
 
   # wasm2c
   wabt_executable(wasm2c
@@ -400,9 +400,9 @@ if (NOT EMSCRIPTEN)
 
   # install
   #install(TARGETS ${WABT_EXECUTABLES} DESTINATION bin)
-  #install(TARGETS eosio-wast2wasm DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
-  #install(TARGETS eosio-wasm2wast DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
-  #install(TARGETS eosio-pp DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
+  #install(TARGETS lemon-wast2wasm DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
+  #install(TARGETS lemon-wasm2wast DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
+  #install(TARGETS lemon-pp DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
 
 else ()
   # emscripten stuff

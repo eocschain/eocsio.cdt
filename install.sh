@@ -56,18 +56,18 @@
    install_symlinks() {
 		printf "\\n\\tInstalling EOSIO.CDT Binary Symlinks\\n\\n"
       create_symlink "llvm-ranlib lemon-ranlib"
-      create_symlink "llvm-ar eosio-ar"
-      create_symlink "llvm-objdump eosio-objdump"
-      create_symlink "llvm-readelf eosio-readelf"
+      create_symlink "llvm-ar lemon-ar"
+      create_symlink "llvm-objdump lemon-objdump"
+      create_symlink "llvm-readelf lemon-readelf"
       create_symlink "lemon-cc lemon-cc"
       create_symlink "lemon-cpp lemon-cpp"
-      create_symlink "eosio-ld eosio-ld"
-      create_symlink "eosio-pp eosio-pp"
-      create_symlink "eosio-init eosio-init"
+      create_symlink "lemon-ld lemon-ld"
+      create_symlink "lemon-pp lemon-pp"
+      create_symlink "lemon-init lemon-init"
       create_symlink "lemon-abigen lemon-abigen"
       create_symlink "lemon-abidiff lemon-abidiff"
-      create_symlink "eosio-wasm2wast eosio-wasm2wast"
-      create_symlink "eosio-wast2wasm eosio-wast2wasm"
+      create_symlink "lemon-wasm2wast lemon-wasm2wast"
+      create_symlink "lemon-wast2wasm lemon-wast2wasm"
    }
    
    create_cmake_symlink() {

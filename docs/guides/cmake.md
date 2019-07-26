@@ -1,5 +1,5 @@
 #### CMakeLists.txt
-To compile an EOSIO smart contract with CMake you'll need a CMake file. The new `eosio-init` tool can be used to generate the directory structure stub .hpp/.cpp files and subsequent cmake files. Or the template `CMakeLists.txt` in the examples folder is a good boilerplate for manual usage.
+To compile an EOSIO smart contract with CMake you'll need a CMake file. The new `lemon-init` tool can be used to generate the directory structure stub .hpp/.cpp files and subsequent cmake files. Or the template `CMakeLists.txt` in the examples folder is a good boilerplate for manual usage.
 
 For example:
 
