@@ -1,3 +1,3 @@
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/eosio-abigen.cpp.in ${CMAKE_BINARY_DIR}/eosio-abigen.cpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lemon-abigen.cpp.in ${CMAKE_BINARY_DIR}/lemon-abigen.cpp)
 
-add_tool(eosio-abigen)
+add_tool(lemon-abigen)
