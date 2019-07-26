@@ -13,7 +13,7 @@ using namespace clang::tooling;
 using namespace llvm;
 
 #define CPP_COMP 1
-#define COMPILER_NAME "eosio-cpp"
+#define COMPILER_NAME "lemon-cpp"
 #include <compiler_options.hpp>
 
 int main(int argc, const char **argv) {
@@ -54,7 +54,7 @@ int main(int argc, const char **argv) {
       opts.abigen_options.insert(opts.abigen_options.begin(), opts.abigen_inputs);
       for ( auto res : opts.abigen_resources )
          opts.abigen_options.emplace(opts.abigen_options.begin(), res);
-      if (!lemon::cdt::environment::exec_subprogram("eosio-abigen", opts.abigen_options))
+      if (!lemon::cdt::environment::exec_subprogram("lemon-abigen", opts.abigen_options))
          return -1;
   }
   

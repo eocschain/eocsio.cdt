@@ -4,12 +4,12 @@ binaries=(eosio-ranlib
           eosio-ar
           eosio-objdump
           eosio-readelf
-          eosio-abigen
+          lemon-abigen
           eosio-wasm2wast
           eosio-wast2wasm
           eosio-pp
-          eosio-cc
-          eosio-cpp
+          lemon-cc
+          lemon-cpp
           eosio-ld)
 
 if [ -d "/usr/local/eosio.cdt" ]; then
