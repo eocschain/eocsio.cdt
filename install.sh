@@ -40,7 +40,7 @@
 	BUILD_DIR="${PWD}/build"
 	CMAKE_BUILD_TYPE=Release
 	TIME_BEGIN=$( date -u +%s )
-   INSTALL_PREFIX="/usr/local/eosio.cdt"
+   INSTALL_PREFIX="/usr/local/lemon.cdt"
 	VERSION=1.2
 
 	txtbld=$(tput bold)
@@ -49,12 +49,12 @@
 
    create_symlink() {
       pushd /usr/local/bin &> /dev/null
-      ln -sf ../eosio.cdt/bin/$1 $2
+      ln -sf ../lemon.cdt/bin/$1 $2
       popd &> /dev/null
    }
 
    install_symlinks() {
-		printf "\\n\\tInstalling EOSIO.CDT Binary Symlinks\\n\\n"
+		printf "\\n\\tInstalling LEMON.CDT Binary Symlinks\\n\\n"
       create_symlink "llvm-ranlib lemon-ranlib"
       create_symlink "llvm-ar lemon-ar"
       create_symlink "llvm-objdump lemon-objdump"
@@ -71,9 +71,9 @@
    }
    
    create_cmake_symlink() {
-      mkdir -p /usr/local/lib/cmake/eosio.cdt
-      pushd /usr/local/lib/cmake/eosio.cdt &> /dev/null
-      ln -sf ../../../eosio.cdt/lib/cmake/eosio.cdt/$1 $1
+      mkdir -p /usr/local/lib/cmake/lemon.cdt
+      pushd /usr/local/lib/cmake/lemon.cdt &> /dev/null
+      ln -sf ../../../lemon.cdt/lib/cmake/lemon.cdt/$1 $1
       popd &> /dev/null
    }
 	if [ ! -d "${BUILD_DIR}" ]; then
@@ -95,7 +95,7 @@
    popd &> /dev/null 
 
    install_symlinks   
-   create_cmake_symlink "eosio.cdt-config.cmake"
+   create_cmake_symlink "lemon.cdt-config.cmake"
 
    printf "\n${bldred}\t      ___           ___           ___                       ___\n"
    printf "\t     /  /\\         /  /\\         /  /\\        ___          /  /\\ \n"

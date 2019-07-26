@@ -12,20 +12,20 @@ binaries=(lemon-ranlib
           lemon-cpp
           lemon-ld)
 
-if [ -d "/usr/local/eosio.cdt" ]; then
+if [ -d "/usr/local/lemon.cdt" ]; then
    printf "\tDo you wish to remove this install? (requires sudo)\n"
    select yn in "Yes" "No"; do
       case $yn in
          [Yy]* )
             pushd /usr/local &> /dev/null
-            rm -rf eosio.cdt
+            rm -rf lemon.cdt
             pushd bin &> /dev/null
             for binary in ${binaries[@]}; do
                rm ${binary}
             done
             popd &> /dev/null
             pushd lib/cmake &> /dev/null
-            rm -rf eosio.cdt
+            rm -rf lemon.cdt
             popd &> /dev/null
             break;;
          [Nn]* ) 
@@ -35,13 +35,13 @@ if [ -d "/usr/local/eosio.cdt" ]; then
    done
 fi
 
-if [ -d "/usr/local/eosio.wasmsdk" ]; then
+if [ -d "/usr/local/lemon.wasmsdk" ]; then
    printf "\tDo you wish to remove this install? (requires sudo)\n"
    select yn in "Yes" "No"; do
       case $yn in
          [Yy]* )
             pushd /usr/local &> /dev/null
-            rm -rf eosio.wasmsdk
+            rm -rf lemon.wasmsdk
             pushd bin &> /dev/null
             for binary in ${binaries[@]}; do
                rm ${binary}
