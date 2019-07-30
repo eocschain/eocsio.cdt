@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(eosio_cdt)
+project(lemon_cdt)
 
 find_program(SCCACHE_FOUND sccache)
 if (SCCACHE_FOUND)
@@ -43,22 +43,22 @@ set(WASM_SDK_BUILD true)
 
 ### Configure the EosioWasmToolchain.cmakes
 set(CDT_ROOT_DIR ${CMAKE_BINARY_DIR})
-configure_file(${CMAKE_SOURCE_DIR}/modules/eosio.cdt-config.cmake ${CMAKE_BINARY_DIR}/lib/cmake/eosio.cdt/eosio.cdt-config.cmake @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/modules/EosioCDTMacros.cmake.in ${CMAKE_BINARY_DIR}/lib/cmake/eosio.cdt/EosioCDTMacros.cmake @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/modules/EosioWasmToolchain.cmake.in ${CMAKE_BINARY_DIR}/lib/cmake/eosio.cdt/EosioWasmToolchain.cmake @ONLY)
+configure_file(${CMAKE_SOURCE_DIR}/modules/lemon.cdt-config.cmake ${CMAKE_BINARY_DIR}/lib/cmake/lemon.cdt/lemon.cdt-config.cmake @ONLY)
+configure_file(${CMAKE_SOURCE_DIR}/modules/EosioCDTMacros.cmake.in ${CMAKE_BINARY_DIR}/lib/cmake/lemon.cdt/EosioCDTMacros.cmake @ONLY)
+configure_file(${CMAKE_SOURCE_DIR}/modules/EosioWasmToolchain.cmake.in ${CMAKE_BINARY_DIR}/lib/cmake/lemon.cdt/EosioWasmToolchain.cmake @ONLY)
 
 set(CDT_ROOT_DIR ${CMAKE_INSTALL_PREFIX})
-configure_file(${CMAKE_SOURCE_DIR}/modules/eosio.cdt-config.cmake ${CMAKE_BINARY_DIR}/modules/eosio.cdt-config.cmake @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/modules/eosio.cdt-config.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/eosio.cdt)
+configure_file(${CMAKE_SOURCE_DIR}/modules/lemon.cdt-config.cmake ${CMAKE_BINARY_DIR}/modules/lemon.cdt-config.cmake @ONLY)
+install(FILES ${CMAKE_BINARY_DIR}/modules/lemon.cdt-config.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/lemon.cdt)
 configure_file(${CMAKE_SOURCE_DIR}/modules/EosioCDTMacros.cmake.in ${CMAKE_BINARY_DIR}/modules/EosioCDTMacros.cmake @ONLY)
 configure_file(${CMAKE_SOURCE_DIR}/modules/EosioWasmToolchain.cmake.in ${CMAKE_BINARY_DIR}/modules/EosioWasmToolchain.cmake @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/modules/EosioWasmToolchain.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/eosio.cdt)
-install(FILES ${CMAKE_BINARY_DIR}/modules/EosioCDTMacros.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/eosio.cdt)
+install(FILES ${CMAKE_BINARY_DIR}/modules/EosioWasmToolchain.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/lemon.cdt)
+install(FILES ${CMAKE_BINARY_DIR}/modules/EosioCDTMacros.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/lemon.cdt)
 
 set(CDT_ROOT_DIR "_PREFIX_")
 configure_file(${CMAKE_SOURCE_DIR}/modules/EosioCDTMacros.cmake.in ${CMAKE_BINARY_DIR}/modules/EosioCDTMacrosPackage.cmake @ONLY)
 configure_file(${CMAKE_SOURCE_DIR}/modules/EosioWasmToolchain.cmake.in ${CMAKE_BINARY_DIR}/modules/EosioWasmToolchainPackage.cmake @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/modules/eosio.cdt-config.cmake ${CMAKE_BINARY_DIR}/modules/eosio.cdt-config.cmake.package @ONLY)
+configure_file(${CMAKE_SOURCE_DIR}/modules/lemon.cdt-config.cmake ${CMAKE_BINARY_DIR}/modules/lemon.cdt-config.cmake.package @ONLY)
 
 include(modules/LibrariesExternalProject.txt)
 
@@ -89,7 +89,7 @@ configure_file(${CMAKE_SOURCE_DIR}/tools/external/wabt/LICENSE ${CMAKE_BINARY_DI
 configure_file(${CMAKE_SOURCE_DIR}/tools/jsoncons/LICENSE ${CMAKE_BINARY_DIR}/licenses/jsoncons.license COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/LICENSE ${CMAKE_BINARY_DIR}/licenses/eosio.cdt.license COPYONLY)
 
-include(modules/TestsExternalProject.txt)
+#include(modules/TestsExternalProject.txt)
 
 include(CTest)
 enable_testing()
